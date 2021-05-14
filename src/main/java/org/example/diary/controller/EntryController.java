@@ -3,14 +3,8 @@ package org.example.diary.controller;
 import org.example.diary.entity.Entry;
 import org.example.diary.service.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/user/{idUser}/entries")
@@ -33,7 +27,6 @@ public class EntryController {
     }
 
     @GetMapping()
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public  @ResponseBody
     Set<Entry> getEntries(@PathVariable Long idUser){
         return entryService.getEntries(idUser);

@@ -22,8 +22,6 @@ public class Entry {
 
     private User user;
 
-
-
     public Long getId() {
         return id;
     }
