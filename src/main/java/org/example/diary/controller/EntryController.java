@@ -15,15 +15,14 @@ public class EntryController {
     public EntryController(EntryService entryService) {
         this.entryService = entryService;
     }
+
     @PostMapping
     public @ResponseBody
-    Entry addEntry(@PathVariable Long idUser,@RequestBody final Entry entry){
-        return entryService.addEntry(idUser,entry);
-    }
+    Entry addEntry(@PathVariable Long idUser,@RequestBody final Entry entry){ return entryService.addEntry(idUser,entry); }
 
     @GetMapping("/{id}")
-    public Entry getEntry(@PathVariable Long id) {
-        return entryService.getEntry(id);
+    public Entry getEntry(@PathVariable Long idUser, @PathVariable Long id) {
+        return entryService.getEntry(idUser,id);
     }
 
     @GetMapping()
@@ -33,13 +32,13 @@ public class EntryController {
     }
 
     @PutMapping("/{id}")
-    public Entry editEntry(@PathVariable final Long id, @RequestBody Entry entry){
-        return entryService.editEntry(id,entry);
+    public Entry editEntry(@PathVariable Long idUser, @PathVariable final Long id, @RequestBody Entry entry){
+        return entryService.editEntry(idUser,id,entry);
     }
 
     @DeleteMapping("/{id}")
-    public Entry deleteEntry(@PathVariable final Long id){
-        return entryService.deleteEntry(id);
+    public Entry deleteEntry(@PathVariable Long idUser, @PathVariable final Long id){
+        return entryService.deleteEntry(idUser,id);
     }
 
 

@@ -39,6 +39,10 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private Set<Entry> entries;
 
+	@JsonIgnore
+	@OneToMany(mappedBy="user")
+	private Set<Todo> todos;
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
 				joinColumns = @JoinColumn(name = "user_id"), 
@@ -100,5 +104,13 @@ public class User {
 
 	public void setEntries(Set<Entry> entries) {
 		this.entries = entries;
+	}
+
+	public Set<Todo> getTodos() {
+		return todos;
+	}
+
+	public void setTodos(Set<Todo> todos) {
+		this.todos = todos;
 	}
 }

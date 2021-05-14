@@ -1,15 +1,20 @@
 package org.example.diary.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
+
 @Entity
-@Table(name = "entries")
-public class Entry {
+@Table(name = "todos")
+public class Todo {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
+
+    @NotBlank
     private String text;
+
+    private boolean completed;
     private Date date;
 
     @ManyToOne
@@ -24,14 +29,6 @@ public class Entry {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getText() {
         return text;
     }
@@ -40,12 +37,12 @@ public class Entry {
         this.text = text;
     }
 
-    public Date getDate() {
-        return date;
+    public boolean isCompleted() {
+        return completed;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public User getUser() {
@@ -54,6 +51,14 @@ public class Entry {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }
