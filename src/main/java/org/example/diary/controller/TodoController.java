@@ -1,10 +1,12 @@
 package org.example.diary.controller;
 
+
 import org.example.diary.entity.Todo;
 import org.example.diary.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -20,7 +22,7 @@ public class TodoController {
 
     @PostMapping
     public @ResponseBody
-    Todo addTodo(@PathVariable Long idUser, @RequestBody final Todo todo){ return todoService.addTodo(idUser,todo); }
+    Todo addTodo(@PathVariable Long idUser, @Valid @RequestBody final Todo todo){ return todoService.addTodo(idUser,todo); }
 
     @GetMapping("/{id}")
     public Todo getTodo(@PathVariable Long idUser, @PathVariable Long id) {

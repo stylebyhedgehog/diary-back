@@ -1,11 +1,9 @@
 package org.example.diary.service;
 
-import org.example.diary.entity.Entry;
 import org.example.diary.entity.Todo;
 import org.example.diary.entity.User;
 import org.example.diary.repository.TodoRepository;
 import org.example.diary.security.services.AccessService;
-import org.example.diary.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

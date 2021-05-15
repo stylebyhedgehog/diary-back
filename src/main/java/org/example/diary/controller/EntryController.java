@@ -4,6 +4,8 @@ import org.example.diary.entity.Entry;
 import org.example.diary.service.EntryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -18,7 +20,7 @@ public class EntryController {
 
     @PostMapping
     public @ResponseBody
-    Entry addEntry(@PathVariable Long idUser,@RequestBody final Entry entry){ return entryService.addEntry(idUser,entry); }
+    Entry addEntry( @PathVariable Long idUser,@Valid @RequestBody Entry entry){ return entryService.addEntry(idUser,entry); }
 
     @GetMapping("/{id}")
     public Entry getEntry(@PathVariable Long idUser, @PathVariable Long id) {

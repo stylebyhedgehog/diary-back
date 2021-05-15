@@ -4,7 +4,6 @@ import org.example.diary.entity.Entry;
 import org.example.diary.entity.User;
 import org.example.diary.repository.EntryRepository;
 import org.example.diary.security.services.AccessService;
-import org.example.diary.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -42,7 +41,7 @@ public class EntryService {
     public Entry getEntry(Long idUser, Long id){
         Entry entry= entryRepository.findById(id).orElseThrow(()->
          new ResponseStatusException(
-                HttpStatus.NOT_FOUND, "Запись не найдена"));
+                HttpStatus.NOT_FOUND, "Р—Р°РїРёСЃСЊ РЅРµ РЅР°Р№РґРµРЅР°"));
         accessService.checkPermissionsForPage(idUser);
         return entry;
     }

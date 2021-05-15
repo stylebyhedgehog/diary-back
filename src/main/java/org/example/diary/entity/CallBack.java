@@ -3,15 +3,16 @@ package org.example.diary.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+
 @Entity
-@Table(name = "entries")
-public class Entry {
+@Table(name = "callback")
+public class CallBack {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "Заголовок обязателен")
+    @NotBlank
     private String title;
-    @NotBlank(message = "Текст обязателен")
+    @NotBlank
     private String text;
     private Date date;
 
@@ -58,5 +59,4 @@ public class Entry {
     public void setUser(User user) {
         this.user = user;
     }
-
 }

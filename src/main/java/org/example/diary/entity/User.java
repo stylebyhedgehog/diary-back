@@ -42,6 +42,10 @@ public class User {
 	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private Set<Todo> todos;
+	@JsonIgnore
+
+	@OneToMany(mappedBy="user")
+	private Set<CallBack> callBacks;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(	name = "user_roles", 
@@ -112,5 +116,13 @@ public class User {
 
 	public void setTodos(Set<Todo> todos) {
 		this.todos = todos;
+	}
+
+	public Set<CallBack> getCallBacks() {
+		return callBacks;
+	}
+
+	public void setCallBacks(Set<CallBack> callBacks) {
+		this.callBacks = callBacks;
 	}
 }
