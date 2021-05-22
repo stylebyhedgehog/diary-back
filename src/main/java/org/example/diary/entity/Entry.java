@@ -1,5 +1,7 @@
 package org.example.diary.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -13,6 +15,7 @@ public class Entry {
     private String title;
     @NotBlank(message = "Текст обязателен")
     private String text;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 
     @ManyToOne

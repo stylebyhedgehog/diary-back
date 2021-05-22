@@ -1,5 +1,6 @@
 package org.example.diary.payload.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.example.diary.entity.CallBack;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ public class CallBackResponse {
     private String title;
     private String text;
     private String email;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 
     public CallBackResponse(Long id, String title, String text, String email, Date date) {

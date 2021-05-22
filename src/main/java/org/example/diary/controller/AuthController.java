@@ -90,9 +90,9 @@ public class AuthController {
 				.orElseThrow(() -> new RuntimeException("Ошибка: Роль не найдена."));
 		roles.add(userRoleDefault);
 
-		Role userRoleAdmin = roleRepository.findByName(ERole.ROLE_ADMIN)
-				.orElseThrow(() -> new RuntimeException("Ошибка: Роль не найдена."));
-		roles.add(userRoleAdmin);
+//		Role userRoleAdmin = roleRepository.findByName(ERole.ROLE_ADMIN)
+//				.orElseThrow(() -> new RuntimeException("Ошибка: Роль не найдена."));
+//		roles.add(userRoleAdmin);
 
 		user.setRoles(roles);
 		userRepository.save(user);

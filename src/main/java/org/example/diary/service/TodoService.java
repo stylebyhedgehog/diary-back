@@ -67,7 +67,7 @@ public class TodoService {
         Todo toggleTodo = getTodo(idUser,id);
         toggleTodo.setCompleted(!toggleTodo.isCompleted());
         toggleTodo.setDate(new Date());
-        accessService.checkPermissionsForObject(toggleTodo);
+//        accessService.checkPermissionsForObject(toggleTodo);
         todoRepository.save(toggleTodo);
         return toggleTodo;
     }

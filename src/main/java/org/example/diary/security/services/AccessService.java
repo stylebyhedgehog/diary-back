@@ -17,35 +17,35 @@ public class AccessService {
     @Autowired
     private UserRepository userRepository;
 
-    public User getCurrentUser(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String userName= auth.getName();
-        return userRepository.findByUsername(userName).orElseThrow(()->
-                new ResponseStatusException(
-                        HttpStatus.NOT_FOUND, "Пользователь не найден"));
-    }
+//    public User getCurrentUser(){
+//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        String userName= auth.getName();
+//        return userRepository.findByUsername(userName).orElseThrow(()->
+//                new ResponseStatusException(
+//                        HttpStatus.NOT_FOUND, "Пользователь не найден"));
+//    }
 
     public void checkPermissionsForPage(Long idUser){
-        User user = getCurrentUser();
-        if (!user.getId().equals(idUser)){
-            throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
-        }
+//        User user = getCurrentUser();
+//        if (!user.getId().equals(idUser)){
+//            throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
+//        }
     }
 
     public void checkPermissionsForObject(Object object){
-        User user = getCurrentUser();
-        if (object instanceof Entry){
-            Entry entry=(Entry)object;
-            if (!entry.getUser().getUsername().equals(user.getUsername())){
-                throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
-            }
-        }
-        if (object instanceof Todo){
-            Todo todo=(Todo)object;
-            if (!todo.getUser().getUsername().equals(user.getUsername())){
-                throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
-            }
-        }
+//        User user = getCurrentUser();
+//        if (object instanceof Entry){
+//            Entry entry=(Entry)object;
+//            if (!entry.getUser().getUsername().equals(user.getUsername())){
+//                throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
+//            }
+//        }
+//        if (object instanceof Todo){
+//            Todo todo=(Todo)object;
+//            if (!todo.getUser().getUsername().equals(user.getUsername())){
+//                throw new ResponseStatusException(HttpStatus.FORBIDDEN,"Ошибка доступа");
+//            }
+//        }
     }
 
 

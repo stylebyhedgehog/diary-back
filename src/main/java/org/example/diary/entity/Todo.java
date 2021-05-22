@@ -1,5 +1,7 @@
 package org.example.diary.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -15,6 +17,7 @@ public class Todo {
     private String text;
 
     private boolean completed;
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 
     @ManyToOne

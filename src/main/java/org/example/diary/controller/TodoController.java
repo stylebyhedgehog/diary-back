@@ -35,10 +35,6 @@ public class TodoController {
         return todoService.getTodos(idUser);
     }
 
-    @PutMapping("/{id}")
-    public Todo editTodo(@PathVariable Long idUser, @PathVariable final Long id, @RequestBody Todo todo){
-        return todoService.editTodo(idUser,id,todo);
-    }
 
     @PutMapping("/{id}/toggle")
     public Todo toggleTodo(@PathVariable Long idUser, @PathVariable final Long id){
